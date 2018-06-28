@@ -97,6 +97,7 @@ def sample_slds_model():
     z = np.repeat(z, D)
 
     statesobj = slds._states_class(model=slds, T=z.size, stateseq=z, inputs=np.ones((z.size, 1)))
+    statesobj.generate_gaussian_states()
     y = statesobj.data = statesobj.generate_obs()
     x = statesobj.gaussian_states
     slds.states_list.append(statesobj)
